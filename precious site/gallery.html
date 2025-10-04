@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Admissions at Precious Site Academy — Join a safe, caring, and high‑performing community." />
-  <title>Admission · Precious Site Academy</title>
+  <meta name="description" content="Gallery · Precious Site Academy" />
+  <title>Gallery · Precious Site Academy</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .gallery-grid { max-width: var(--max-w); margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .gallery-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); }
+  </style>
 </head>
 <body>
   <header class="header" role="banner">
@@ -18,8 +22,8 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="academics.html">Academics</a></li>
-        <li><a href="admission.html" aria-current="page">Admission</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="admission.html">Admission</a></li>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -27,23 +31,14 @@
 
   <main id="content" tabindex="-1">
     <section class="hero">
-      <h2>Admission</h2>
-      <p>Join Precious Site Academy — a great decision for your child's future.</p>
+      <h2>Gallery</h2>
+      <p>Highlights from life at Precious Site Academy.</p>
     </section>
 
-    <section class="features">
-      <div class="feature">
-        <h3>Requirements</h3>
-        <p>Copy of birth certificate, previous school reports (if any), two passport photos, and medical card.</p>
-      </div>
-      <div class="feature">
-        <h3>Process</h3>
-        <p>Visit our school office or call us to schedule an interview and tour. Registration is open year‑round.</p>
-      </div>
-      <div class="feature">
-        <h3>Fees & Uniforms</h3>
-        <p>Affordable fee structure with flexible payment plans. School uniforms are available at our office.</p>
-      </div>
+    <section class="gallery-grid" aria-label="School photo gallery">
+      <img src="WhatsApp Image 2025-07-01 at 10.21.13_25fc2e85.jpg" alt="Gallery image 1" />
+      <img src="WhatsApp Image 2025-07-01 at 10.21.14_726fe174.jpg" alt="Gallery image 2" />
+      <img src="WhatsApp Image 2025-07-01 at 10.21.15_e2be5c64.jpg" alt="Gallery image 3" />
     </section>
   </main>
 

@@ -1,151 +1,68 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // =========================
-  // ✅ Calendar code here
-  // =========================
-  // If your calendar has event listeners or functions, paste them here
-
-  // Example placeholder:
-  const calendar = document.getElementById("calendar");
-  if (calendar) {
-    calendar.innerHTML = "Calendar still works here!";
-    // ... your calendar setup continues
-  }
-
-  // =========================
-  // ✅ Slider code below
-  // =========================
-  let slideIndex = 0;
-  const slides = document.getElementsByClassName("slide");
+document.addEventListener("DOMContentLoaded", () => {
+  // Slider
+  const slides = Array.from(document.getElementsByClassName("slide"));
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
 
-  function showSlide(index) {
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    slides[index].style.display = "block";
+  let slideIndex = 0;
+  let autoSlideTimer = null;
+
+  function setActiveSlide(index) {
+    slides.forEach((img, i) => {
+      if (i === index) {
+        img.classList.add("is-active");
+        img.setAttribute("aria-hidden", "false");
+      } else {
+        img.classList.remove("is-active");
+        img.setAttribute("aria-hidden", "true");
+      }
+    });
   }
 
   function changeSlide(step) {
-    slideIndex += step;
-    if (slideIndex >= slides.length) slideIndex = 0;
-    if (slideIndex < 0) slideIndex = slides.length - 1;
-    showSlide(slideIndex);
+    if (slides.length === 0) return;
+    slideIndex = (slideIndex + step + slides.length) % slides.length;
+    setActiveSlide(slideIndex);
   }
 
-  function autoSlide() {
-    changeSlide(1);
-    setTimeout(autoSlide, 4000);
+  function startAutoSlide() {
+    stopAutoSlide();
+    autoSlideTimer = setInterval(() => changeSlide(1), 4000);
   }
 
-  // Only run slider if images exist
+  function stopAutoSlide() {
+    if (autoSlideTimer) clearInterval(autoSlideTimer);
+  }
+
   if (slides.length > 0) {
-    showSlide(slideIndex);
-    autoSlide();
+    setActiveSlide(slideIndex);
+    startAutoSlide();
 
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener("click", () => changeSlide(-1));
-      nextBtn.addEventListener("click", () => changeSlide(1));
-    }
+    if (prevBtn) prevBtn.addEventListener("click", () => { changeSlide(-1); startAutoSlide(); });
+    if (nextBtn) nextBtn.addEventListener("click", () => { changeSlide(1); startAutoSlide(); });
+
+    // Keyboard navigation for accessibility
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") { changeSlide(-1); startAutoSlide(); }
+      if (e.key === "ArrowRight") { changeSlide(1); startAutoSlide(); }
+    });
   }
-});document.addEventListener("DOMContentLoaded", function () {
-  // =========================
-  // ✅ Calendar code here
-  // =========================
-  // If your calendar has event listeners or functions, paste them here
 
-  // Example placeholder:
+  // Contact form (basic demo handling)
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+      const name = formData.get("name");
+      alert(`Thank you, ${name}! Your message has been sent.`);
+      contactForm.reset();
+    });
+  }
+
+  // Calendar placeholder retained (if an element with id="calendar" exists)
   const calendar = document.getElementById("calendar");
   if (calendar) {
-    calendar.innerHTML = "Calendar still works here!";
-    // ... your calendar setup continues
-  }
-
-  // =========================
-  // ✅ Slider code below
-  // =========================
-  let slideIndex = 0;
-  const slides = document.getElementsByClassName("slide");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
-
-  function showSlide(index) {
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    slides[index].style.display = "block";
-  }
-  document.addEventListener("DOMContentLoaded", function () {
-    // =========================
-    // ✅ Calendar code here
-    // =========================
-    // If your calendar has event listeners or functions, paste them here
-  
-    // Example placeholder:
-    const calendar = document.getElementById("calendar");
-    if (calendar) {
-      calendar.innerHTML = "Calendar still works here!";
-      // ... your calendar setup continues
-    }
-  
-    // =========================
-    // ✅ Slider code below
-    // =========================
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
-  
-    function showSlide(index) {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slides[index].style.display = "block";
-    }
-  
-    function changeSlide(step) {
-      slideIndex += step;
-      if (slideIndex >= slides.length) slideIndex = 0;
-      if (slideIndex < 0) slideIndex = slides.length - 1;
-      showSlide(slideIndex);
-    }
-  
-    function autoSlide() {
-      changeSlide(1);
-      setTimeout(autoSlide, 4000);
-    }
-  
-    // Only run slider if images exist
-    if (slides.length > 0) {
-      showSlide(slideIndex);
-      autoSlide();
-  
-      if (prevBtn && nextBtn) {
-        prevBtn.addEventListener("click", () => changeSlide(-1));
-        nextBtn.addEventListener("click", () => changeSlide(1));
-      }
-    }
-  });
-  function changeSlide(step) {
-    slideIndex += step;
-    if (slideIndex >= slides.length) slideIndex = 0;
-    if (slideIndex < 0) slideIndex = slides.length - 1;
-    showSlide(slideIndex);
-  }
-
-  function autoSlide() {
-    changeSlide(1);
-    setTimeout(autoSlide, 4000);
-  }
-
-  // Only run slider if images exist
-  if (slides.length > 0) {
-    showSlide(slideIndex);
-    autoSlide();
-
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener("click", () => changeSlide(-1));
-      nextBtn.addEventListener("click", () => changeSlide(1));
-    }
+    calendar.textContent = "Calendar still works here!";
   }
 });
