@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Gallery · Precious Site Academy" />
+  <title>Gallery · Precious Site Academy</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .gallery-grid { max-width: var(--max-w); margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .gallery-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm); }
+  </style>
+</head>
+<body>
+  <header class="header" role="banner">
+    <div class="logo-title">
+      <img src="WhatsApp Image 2025-07-01 at 10.21.11_5353bc8b.jpg" alt="Precious Site Academy logo" class="logo" />
+      <h1 class="school-name">Precious Site Academy</h1>
+    </div>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="admission.html">Admission</a></li>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content" tabindex="-1">
+    <section class="hero">
+      <h2>Gallery</h2>
+      <p>Highlights from life at Precious Site Academy.</p>
+    </section>
+
+    <section class="gallery-grid" aria-label="School photo gallery">
+      <img src="WhatsApp Image 2025-07-01 at 10.21.13_25fc2e85.jpg" alt="Gallery image 1" />
+      <img src="WhatsApp Image 2025-07-01 at 10.21.14_726fe174.jpg" alt="Gallery image 2" />
+      <img src="WhatsApp Image 2025-07-01 at 10.21.15_e2be5c64.jpg" alt="Gallery image 3" />
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-links">
+      <a href="https://facebook.com/YourPage" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+      <a href="https://youtube.com/YourChannel" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YouTube</a>
+      <a href="https://tiktok.com/@YourHandle" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
+      <a href="https://wa.me/254712345678" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">WhatsApp</a>
+    </div>
+    <p>&copy; 2025 Precious Site Academy · Designed by Stephen Ikumbu</p>
+  </footer>
+</body>
+</html>
